@@ -3,3 +3,4 @@ stats = open('CIS121_ProjectStatSheet1.xlsx', 'r')
 
 def function():
 
+for i in 
