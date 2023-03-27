@@ -20,4 +20,8 @@ def simulateGame(team1,team2):
     team1Score=random.randint(0,100)
     team2Score=random.randint(0,100)
     if team1Score > team2Score:
+       #Update
+     else:
+       #Update
+       
         
