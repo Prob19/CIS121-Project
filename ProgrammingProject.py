@@ -40,3 +40,50 @@ while True:
             teamsWL[team1]["Losses"] += 1
             print(team1Score, "-", team2Score)
             print(teamsWL)
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              class BasketballGame:
+    def __init__(self, opponent_team):
+        self.opponent_team = opponent_team
+        self.my_team = []
+
+    def create_team(self):
+        for i in range(3):
+            player_name = input(f"Enter player {i+1} name: ")
+            self.my_team.append(BasketballPlayer(player_name, "My Team"))
+
+    def play_game(self):
+        print(f"My Team vs {self.opponent_team}")
+        for player in self.my_team:
+            opponent_player = random.choice(self.opponent_team)
+            print(f"{player.name} (My Team) vs {opponent_player} ({self.opponent_team})")
+        print("Game result: My Team wins!")
+
+# Pre-defined opponent teams
+opponent_teams = {
+    "Timberwolves": ["Karl Anthony-Towns", "Rudy Gobert", "Anthony Edwards"],
+    "Nets": ["Nic Claxton", "Cam Thomas", "Seth Curry"],
+    "Clippers": ["Paul George", "Kawhi Leonard", "Marcus Morris"],
+    "Magic": ["Jalen Suggs", "Franz Wagner", "Cole Anthony"],
+    "Kings": ["Damontis Sabonis", "Kevin Huerter", "DeAaron Fox"],
+    "Heat": ["Jimmy Butler", "Tyler Herro", "Bam Adebayo"]
+}
+
+# Prompt the user to choose an opponent team
+print("Choose an opponent team:")
+for team_name in opponent_teams.keys():
+    print(f"{team_name}")
+choice = input("Enter team name: ")
+opponent_team = opponent_teams[choice]
+
+# Play the game
+game = BasketballGame(opponent_team)
+game.create_team()
+game.play_game()
