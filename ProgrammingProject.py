@@ -9,6 +9,7 @@ Heat=["Jimmy Butler","Tyler Herro","Bam Adebayo"]
 """
 
 
+
 """
 teamsPPGAverage={Timberwolves:{"Karl Anthony Towns":25,"Rudy Gobert": 18,"Anthony Edwards":29},
        Nets:{"Nic Claxton":15,"Cam Thomas":25,"seth curry":13},
@@ -17,15 +18,19 @@ teamsPPGAverage={Timberwolves:{"Karl Anthony Towns":25,"Rudy Gobert": 18,"Anthon
        Kings:{"Domantas Sabonis":28,"Kevin Huerter":8,"DeAaron Fox":22},
        Heat:{"Jimmy Butler":12,"Tyler Herro":9,"Bam Adebayo":20}}
 """
-teamsWL={"Timberwolves":{"Wins":0,"Losses":0},"Nets":{"Wins":0,"Losses":0},"Clippers":{"Wins":0,"Losses":0}}
 
+teamsWL={"Timberwolves":{"Wins":0,"Losses":0},"Nets":{"Wins":0,"Losses":0},"Clippers":{"Wins":0,"Losses":0},"Magic":{"Wins":0,"Losses":0},"Kings":{"Wins":0,"Losses":0},"Heat":{"Wins":0,"Losses":0}}
+"""
 while True:
-    team1=input("Enter a team or type 'break' to quit: ")
+    team1=input("Enter a team or type 'break' for both teams to quit: ")
     team2=input("Enter another team: ")
     team1Score=0
     team2Score=0
     if team1=="break":
         print(teamsWL)
+        f=open("newFile.txt","w")
+        f.write(str(teamsWL))
+        f.close()
         break
     else:
         team1Score=random.randint(70,120)
@@ -34,48 +39,44 @@ while True:
             teamsWL[team1]["Wins"] += 1
             teamsWL[team2]["Losses"]+=1
             print(team1Score,"-", team2Score)
+            print(team1, "win!")
             print(teamsWL)
         else:
             teamsWL[team2]["Wins"] += 1
             teamsWL[team1]["Losses"] += 1
             print(team1Score, "-", team2Score)
+            print(team2, "win!")
             print(teamsWL)
-              
-              
-   class Players:
-    def __init__(self, name):
-       self.name = name
-    def __add__(self, other):
-     return Players(self.name + other.name)
-    def __str__(self):
-       return f" Player Name: {self.name}"
-    def add_player_name(self):
-       player_name = input("Please enter a player name:")
-       self.name += f" {player_name}"
-obj = Players("New Player:")
-print(obj)
-              
-              
-              
-              
-              
-              
-              class BasketballGame:
+"""
+class BasketballGame:
     def __init__(self, opponent_team):
         self.opponent_team = opponent_team
         self.my_team = []
 
     def create_team(self):
         for i in range(3):
-            player_name = input(f"Enter player {i+1} name: ")
-            self.my_team.append(BasketballPlayer(player_name, "My Team"))
+            player_name = input("Enter player name: ")
+            self.my_team.append(player_name)
+            i+=1
 
     def play_game(self):
         print(f"My Team vs {self.opponent_team}")
-        for player in self.my_team:
-            opponent_player = random.choice(self.opponent_team)
-            print(f"{player.name} (My Team) vs {opponent_player} ({self.opponent_team})")
-        print("Game result: My Team wins!")
+        team1Score = 0
+        team2Score = 0
+        team1Score = random.randint(70, 120)
+        team2Score = random.randint(70, 120)
+        if team1Score > team2Score:
+            teamsWL[team1]["Wins"] += 1
+            teamsWL[team2]["Losses"] += 1
+            print(team1Score, "-", team2Score)
+            print(team1, "win!")
+            print(teamsWL)
+        else:
+            teamsWL[team2]["Wins"] += 1
+            teamsWL[team1]["Losses"] += 1
+            print(team1Score, "-", team2Score)
+            print(team2, "win!")
+            print(teamsWL)
 
 # Pre-defined opponent teams
 opponent_teams = {
