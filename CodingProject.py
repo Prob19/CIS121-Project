@@ -91,6 +91,24 @@ x.player_selection()
 
 roster = x.get_team()
 
+#Adds player to a team of their choice
+class AddPlayers:
+    def __init__(self, name):
+       self.name = name
+
+    def __add__(self, other):
+     return AddPlayers(self.name + " " + other.name)
+    
+    def __str__(self):
+       return f"Player Name: {self.name}"
+    
+    def add_player_name(self):
+       player_name = input("Please enter a player name:")
+       self.name += " " + player_name
+obj = AddPlayers("New Player:")
+print(obj)
+obj.add_player_name()
+print(obj)
 	
 	
 	
