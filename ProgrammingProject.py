@@ -9,7 +9,6 @@ Heat=["Jimmy Butler","Tyler Herro","Bam Adebayo"]
 """
 
 
-
 """
 teamsPPGAverage={Timberwolves:{"Karl Anthony Towns":25,"Rudy Gobert": 18,"Anthony Edwards":29},
        Nets:{"Nic Claxton":15,"Cam Thomas":25,"seth curry":13},
