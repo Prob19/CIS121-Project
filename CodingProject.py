@@ -19,7 +19,7 @@ teamsPPGAverage={Timberwolves:{"Karl Anthony Towns":25,"Rudy Gobert": 18,"Anthon
        Heat:{"Jimmy Butler":12,"Tyler Herro":9,"Bam Adebayo":20}}
 """
 
-teamsWL={"Timberwolves":{"Wins":0,"Losses":0, "Scores":[]},"Nets":{"Wins":0,"Losses":0, "Scores":[]},"Clippers":{"Wins":0,"Losses":0, "Scores":[]},"Magic":{"Wins":0,"Losses":0, "Scores":[]},"Kings":{"Wins":0,"Losses":0, "Scores":[]},"Heat":{"Wins":0,"Losses":0, "Scores":[]}}
+teamsWL={"Timberwolves":{"Wins":0,"Losses":0},"Nets":{"Wins":0,"Losses":0},"Clippers":{"Wins":0,"Losses":0},"Magic":{"Wins":0,"Losses":0},"Kings":{"Wins":0,"Losses":0},"Heat":{"Wins":0,"Losses":0}}
 
 def play_game():
     while True:
@@ -48,28 +48,51 @@ def play_game():
             # Add scores to teamsWL
             teamsWL[team1]["Scores"].append(team1Score)
             teamsWL[team2]["Scores"].append(team2Score)
-		
+
+
+				
 def calculate_ppg(teamsWL):
+    scores = []
     for team in teamsWL:
         games_played = teamsWL[team]['Wins'] + teamsWL[team]['Losses']
         if games_played == 0:
             ppg = 0
         else:
-            total_score = 0
-            for score in teamsWL[team]['Scores']:
-                total_score += score
-            ppg = total_score / games_played
+            ppg = sum(teamsWL[team]['Scores']) / games_played
         print(f"{team}: {ppg}")
+	
+	
+	
+	
+	
+	
+	
+class Players: #Andrew
+    def __init__(self, name):
+       self.name = name
+    def __add__(self, other):
+     return Players(self.name + other.name)
+    def __str__(self):
+       return self.name
+    
 
-# Define teamsWL and call play_game() to simulate games
-teamsWL = {"Timberwolves": {"Wins": 0, "Losses": 0, "Scores": []},
-           "Nets": {"Wins": 0, "Losses": 0, "Scores": []},
-           "Clippers": {"Wins": 0, "Losses": 0, "Scores": []},
-           "Magic": {"Wins": 0, "Losses": 0, "Scores": []},
-           "Kings": {"Wins": 0, "Losses": 0, "Scores": []},
-           "Heat": {"Wins": 0, "Losses": 0, "Scores": []}}
+class Team:
+    def __init__(self):
+        self.roster = []
+    def player_selection(self): #This method creates the team from the three inputs the user gives
+        for i in range(3):
+           Player_Name = str(input("Enter a player: "))
+           player = Players(Player_Name)
+           self.roster.append(player)
+    def get_team(self):
+       return self.roster
+x = Team()
+x.player_selection()
 
-play_game()
+roster = x.get_team()
 
-# Call calculate_ppg() to calculate each team's points per game average
-calculate_ppg(teamsWL)
+	
+	
+	
+	
+
