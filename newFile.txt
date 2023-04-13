@@ -1,0 +1,1 @@
+{'Timberwolves': {'Wins': 2, 'Losses': 1}, 'Nets': {'Wins': 1, 'Losses': 0}, 'Clippers': {'Wins': 2, 'Losses': 1}, 'Magic': {'Wins': 0, 'Losses': 3}, 'Kings': {'Wins': 1, 'Losses': 0}, 'Heat': {'Wins': 1, 'Losses': 2}}
