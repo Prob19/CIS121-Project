@@ -1,4 +1,3 @@
-
 import random
 class BasketballPlayer:
     def __init__(self, name, team_name):
