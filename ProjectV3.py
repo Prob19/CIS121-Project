@@ -63,5 +63,19 @@ game = BasketballGame(my_team, opponent_team, team_name)
 game.Team_play_game()
 
 
+def calculate_ppg(teamsWL):
+    scores = []
+    for team in teamsWL:
+        games_played = teamsWL[team]['Wins'] + teamsWL[team]['Losses']
+        if games_played == 0:
+            ppg = 0
+        else:
+            ppg = sum(teamsWL[team]['Scores']) / games_played
+        print(f"{team}: {ppg}")
+	
+	
+	
+	
+
 
 
