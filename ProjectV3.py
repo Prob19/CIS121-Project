@@ -1,8 +1,12 @@
+"""
+Patrick Robinson, Brock Unger, Andrew Jungclaus, Lucas Rohl
+This code simulates an NBA basketball game by using classes to allow the user to create their own team with custom players, the created team goes against a hard coded nba team, a random integer is assigned to each team, whoever has the highest integer wins
+"""
 import random
 class BasketballPlayer:
     def __init__(self, name, team_name):
         self.name = name #created player name
-        self.team_name = team_name 
+        self.team_name = team_name
         self.score = 0 #sets player score as 0
     def Player_play_game(self):#score for each individual player, not total points for the team
         self.score = random.randint(0, 50)#picks a random number between 0 and 50 and set that as the player score
@@ -21,16 +25,19 @@ class BasketballGame:
         print(f"{self.team_name} vs {self.opponent_team}")
         for player in self.my_team:
             player.Player_play_game() #calls player play game method to get a random number to set as each players points scored
-            opponent_player = random.choice(self.opponent_team)#picks random player from the oppenent team 
+            opponent_player = random.choice(self.opponent_team)#picks random player from the oppenent team
             opponent_score = random.randint(0, 50) #sets random number from 0-50 and uses the randomly picked opponent player and assigns them the random number as their points scored
             print(f"{player.name} scored {player.score} points on {opponent_player} and {self.opponent_team} scored {opponent_score} points")
         my_team_score = sum([player.score for player in self.my_team])  # calculate total score for my team
-        opponent_team_score = random.randint(50, 150)#sets oppenent teams score with a number between 50 and 150
+        opponent_team_score = random.randint(0, 150)#sets oppenent teams score with a number between 0 and 150
         print(f"Game result: My Team {my_team_score} - {opponent_team_score} {self.opponent_team}")
         if my_team_score > opponent_team_score:
-            print("My Team wins!")
+            print("My Team wins!")#if myteam has higher integer then this is printed
         else:
-            print(self.opponent_team, "wins")
+            print(self.opponent_team, "wins")#prints if opponent team has higher integer
+        f=open("newFile.txt","w") #writes team scores on an external text file
+        f.write(f"{my_team_score} - {opponent_team_score}")
+        f.close()
 #Hard coded teams with players
 opponent_teams = {
     "Timberwolves": ["Karl Anthony-Towns", "Rudy Gobert", "Anthony Edwards"],
@@ -48,17 +55,12 @@ for i in range(3): #prompts user to input 3 players
 # Prompt the user to choose an opponent team
 print("\nChoose an opponent team:")
 for team_name in opponent_teams.keys():
-    print(team_name)
-choice = input("Enter team name: ")
-opponent_team = opponent_teams[choice]
+    print(team_name)#prints the options for the teams you can pick to go against
+choice = input("Enter team name: ")#user picks opponent team
+opponent_team = opponent_teams[choice]#finds key that matches the user input choice
 #object called to play game
-game = BasketballGame(my_team, opponent_team)
+game = BasketballGame(my_team, opponent_team, team_name)
 game.Team_play_game()
-
-
-
-
-
 
 
 
