@@ -23,7 +23,7 @@ class BasketballGame:
             player.play_game()  # simulate player's score
             opponent_player = random.choice(self.opponent_team)
             opponent_score = random.randint(0, 50)  # simulate opponent player's score
-            print(player.name, "scored" ,player.score, "points on", opponent_player, "and", self.opponent_team, "scored" ,opponent_score, "points")
+            print(f"{player.name} scored {player.score} points on {opponent_player} and {self.opponent_team} scored {opponent_score} points")
         my_team_score = sum([player.score for player in self.my_team])  # calculate total score for my team
         opponent_team_score = random.randint(0, 150)  # simulate opponent team's score
         print(f"Game result: My Team {my_team_score} - {opponent_team_score} {self.opponent_team}")
