@@ -41,10 +41,10 @@ opponent_teams = {
     "Heat": ["Jimmy Butler", "Tyler Herro", "Bam Adebayo"]
 }
 #User creates team
-my_team = []
-for i in range(3): #
+my_team = [] #holds team roster
+for i in range(3): #prompts user to input 3 players
     player_name = input(f"Enter player {i+1} name: ")
-    my_team.append(BasketballPlayer(player_name, "My Team"))
+    my_team.append(BasketballPlayer(player_name, "My Team")) #adds created players to the created team
 # Prompt the user to choose an opponent team
 print("\nChoose an opponent team:")
 for team_name in opponent_teams.keys():
