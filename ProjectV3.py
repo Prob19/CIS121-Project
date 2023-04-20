@@ -36,7 +36,7 @@ class BasketballGame:
         else:
             print(self.opponent_team, "wins")#prints if opponent team has higher integer
         f=open("newFile.txt","w") #writes team scores on an external text file
-        f.write(f"{my_team_score} - {opponent_team_score}")
+        f.write(f"{my_team_score} - {opponent_team_score}") #IO FILE HANDLING
         f.close()
 #Hard coded teams with players
 opponent_teams = {
