@@ -1,3 +1,4 @@
+
 """
 Patrick Robinson, Brock Unger, Andrew Jungclaus, Lucas Rohl
 This code simulates an NBA basketball game by using classes to allow the user to create their own team with custom players, the created team goes against a hard coded nba team, a random integer is assigned to each team, whoever has the highest integer wins
@@ -22,7 +23,7 @@ class BasketballGame:
             player_name = input(f"Enter player {i} name: ")
             self.my_team.append(BasketballPlayer(player_name))
     def Team_play_game(self):
-        print(f"MSUM vs {self.opponent_team}")
+        print(f"MSUM vs {choice}")
         for player in self.my_team:
             player.Player_play_game() #calls player play game method to get a random number to set as each players points scored
             opponent_player = random.choice(self.opponent_team)#picks random player from the oppenent team
@@ -30,11 +31,11 @@ class BasketballGame:
             print(f"{player.name} scored {player.score} points on {opponent_player}")
         my_team_score = sum([player.score for player in self.my_team])  # calculate total score for my team
         opponent_team_score = random.randint(0, 120)#sets oppenent teams score with a number between 0 and 120
-        print(f"Game result: My Team {my_team_score} - {opponent_team_score} {self.opponent_team}")
+        print(f"Game result: My Team {my_team_score} - {opponent_team_score} {choice}")
         if my_team_score > opponent_team_score:
-            print("My Team wins!")#if myteam has higher integer then this is printed
+            print("MSUM wins!")#if myteam has higher integer then this is printed
         else:
-            print(self.opponent_team, "wins")#prints if opponent team has higher integer
+            print(choice, "wins")#prints if opponent team has higher integer
         f=open("newFile.txt","w") #writes team scores on an external text file
         f.write(f"{my_team_score} - {opponent_team_score}")
         f.close()
