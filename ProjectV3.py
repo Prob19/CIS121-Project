@@ -27,7 +27,7 @@ class BasketballGame:
             player.Player_play_game() #calls player play game method to get a random number to set as each players points scored
             opponent_player = random.choice(self.opponent_team)#picks random player from the oppenent team
             opponent_score = random.randint(0, 50) #sets random number from 0-50 and uses the randomly picked opponent player and assigns them the random number as their points scored
-            print(f"{player.name} scored {player.score} points on {opponent_player} and {self.opponent_team} scored {opponent_score} points")
+            print(f"{player.name} scored {player.score} points on {opponent_player}")
         my_team_score = sum([player.score for player in self.my_team])  # calculate total score for my team
         opponent_team_score = random.randint(0, 150)#sets oppenent teams score with a number between 0 and 150
         print(f"Game result: My Team {my_team_score} - {opponent_team_score} {self.opponent_team}")
@@ -60,6 +60,8 @@ opponent_team = opponent_teams[choice]#finds key that matches the user input cho
 #object called to play game
 game = BasketballGame(my_team, opponent_team, team_name)
 game.Team_play_game()
+
+
 
 
 def calculate_ppg(teamsWL):
