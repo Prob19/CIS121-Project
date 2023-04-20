@@ -29,7 +29,7 @@ class BasketballGame:
             opponent_score = random.randint(0, 50) #sets random number from 0-50 and uses the randomly picked opponent player and assigns them the random number as their points scored
             print(f"{player.name} scored {player.score} points on {opponent_player}")
         my_team_score = sum([player.score for player in self.my_team])  # calculate total score for my team
-        opponent_team_score = random.randint(0, 150)#sets oppenent teams score with a number between 0 and 150
+        opponent_team_score = random.randint(0, 120)#sets oppenent teams score with a number between 0 and 150
         print(f"Game result: My Team {my_team_score} - {opponent_team_score} {self.opponent_team}")
         if my_team_score > opponent_team_score:
             print("My Team wins!")#if myteam has higher integer then this is printed
