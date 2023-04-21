@@ -24,11 +24,15 @@ class BasketballGame:
             self.my_team.append(BasketballPlayer(player_name))
     def Team_play_game(self):
         print(f"MSUM vs {choice}")
+        OppPlayerList = []
         for player in self.my_team:
             player.Player_play_game() #calls player play game method to get a random number to set as each players points scored
-            opponent_player = random.choice(self.opponent_team)#picks random player from the oppenent team
+            OppPlayer = None #picks random player from the oppenent team
+            while not OppPlayer or OppPlayer in OppPlayerList: #while not loop that will terminate once condition is met
+                OppPlayer = random.choice(self.opponent_team) #chooses an opponment from given list
+            OppPlayerList.append(OppPlayer) #displays a different opponents name
             opponent_score = random.randint(0, 50) #sets random number from 0-50 and uses the randomly picked opponent player and assigns them the random number as their points scored
-            print(f"{player.name} scored {player.score} points on {opponent_player}")
+            print(f"{player.name} scored {player.score} points on {OppPlayer}")
         my_team_score = sum([player.score for player in self.my_team])  # calculate total score for my team
         opponent_team_score = random.randint(0, 120)#sets oppenent teams score with a number between 0 and 120
         print(f"Game result: My Team {my_team_score} - {opponent_team_score} {choice}")
